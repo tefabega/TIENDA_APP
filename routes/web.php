@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PruebaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+/*asi se definen las rutas */
+Route::get('/', [App\Http\Controllers\LandingController::class, 'index'])->name('/');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
